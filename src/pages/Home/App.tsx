@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Home.module.css';
+import logoMiquel from '../../assets/logo_miquel.webp';
 
 const App: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ const App: React.FC = () => {
       <header className={styles.header}>
         <div className={styles.logo}>
           <img 
-            src="https://www.miquelsuay.com/wp-content/uploads/2026/06/logo-miquel-suay-2.svg" 
+            src={logoMiquel} 
             alt="Miquel Suay Logo" 
             className={styles.logoImage} 
           />

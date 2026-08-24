@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './LegalFooter.module.css';
+import logoMiquel from '../../assets/logo_miquel.webp';
 
 export const LegalFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -9,7 +10,7 @@ export const LegalFooter: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.logo}>
           <img 
-            src="https://www.miquelsuay.com/wp-content/uploads/2026/06/logo-miquel-suay-2.svg" 
+            src={logoMiquel} 
             alt="Miquel Suay Logo" 
             className={styles.logoImage} 
           />

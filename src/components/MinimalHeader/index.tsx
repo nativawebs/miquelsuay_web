@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './MinimalHeader.module.css';
+import logoMiquel from '../../assets/logo_miquel.webp';
 
 interface MinimalHeaderProps {
   onCtaClick?: () => void;
@@ -16,7 +17,7 @@ export const MinimalHeader: React.FC<MinimalHeaderProps> = ({
         <div className={styles.logoContainer}>
           <a href="/" className={styles.logo}>
             <img 
-              src="https://www.miquelsuay.com/wp-content/uploads/2026/06/logo-miquel-suay-2.svg" 
+              src={logoMiquel} 
               alt="Miquel Suay Logo" 
               className={styles.logoImage} 
             />
