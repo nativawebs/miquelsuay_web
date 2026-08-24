@@ -30,7 +30,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, rgba(4,4,4,0.4) 0%, rgba(4,4,4,0.85) 100%);
+  background: rgba(4, 4, 4, 0.65); /* Uniform premium dark overlay for image readability */
 }
 
 .contentContainer {
