@@ -5,6 +5,7 @@ import groomStyleCharacterImg from '../assets/groom_style_character.jpg';
 import groomDetailFabricImg from '../assets/groom_detail_fabric.png';
 import groomAtelierImg from '../assets/groom_atelier.png';
 import womenHeroImg from '../assets/women_hero.png';
+import brideSecondaryImg from '../assets/bride_secondary.png';
 
 /**
  * Manifiesto de imágenes centralizado
@@ -34,7 +35,8 @@ export const images: Record<string, string> = {
   WOMEN_HERO: womenHeroImg,
   womenHero: womenHeroImg,
   bridePrimary: "",
-  brideSecondary: "",
+  BRIDE_SECONDARY: brideSecondaryImg,
+  brideSecondary: brideSecondaryImg,
   festeraPrimary: "",
   festeraSecondary: "",
   madrinaPrimary: "",
