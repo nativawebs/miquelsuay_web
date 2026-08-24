@@ -236,11 +236,11 @@
   justify-content: center;
 }
 
-/* ══════════════════════════════════════════════════════
-   PARALLAX COMPOSITION — Two-Layer Editorial Hero
-   Background (brand graphic) + Figure PNG (no bg)
-   ══════════════════════════════════════════════════════ */
-.parallaxFrame {
+/* ══════════════════════════════════
+   COMPOSITE MODE — Background + Figure PNG
+   Two clean CSS layers, no JS
+   ══════════════════════════════════ */
+.compositeFrame {
   position: relative;
   width: 100%;
   height: 100%;
@@ -248,69 +248,29 @@
   overflow: hidden;
 }
 
-/* Layer 1: Brand background — fills fully, moves slow */
-.parallaxBg {
+/* Background fills the full frame */
+.compositeBg {
   position: absolute;
-  inset: -10% 0;
-  will-change: transform;
-  transform-origin: top center;
-}
-
-.parallaxBgImg {
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   display: block;
 }
 
-/* Layer 2: Figure PNG (transparent bg) — centered, bottom-anchored */
-.parallaxFigure {
+/* Figure PNG floats on top, anchored at bottom-center */
+.compositeFigure {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  will-change: transform;
-  z-index: 2;
-  /* Subtle entrance animation */
-  animation: figureEnter 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: 0.3s;
-}
-
-@keyframes figureEnter {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.parallaxFigureImg {
-  height: 100%;
-  max-height: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 96%;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
   display: block;
-  /* Slight drop shadow to lift figure off background */
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
-}
-
-/* Vignette at bottom to blend figure into page */
-.parallaxVignette {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to top, var(--color-background) 0%, transparent 100%);
-  z-index: 3;
-  pointer-events: none;
 }
 
 .slotIdSmall {
