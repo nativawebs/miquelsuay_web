@@ -2,6 +2,7 @@ import groomHeroImg from '../assets/groom_hero.jpg';
 import groomStyleClassicImg from '../assets/groom_style_classic.jpg';
 import groomStyleContemporaryImg from '../assets/groom_style_contemporary.jpg';
 import groomStyleCharacterImg from '../assets/groom_style_character.jpg';
+import groomDetailFabricImg from '../assets/groom_detail_fabric.png';
 
 /**
  * Manifiesto de imágenes centralizado
@@ -21,7 +22,8 @@ export const images: Record<string, string> = {
   groomStyleContemporary: groomStyleContemporaryImg,
   GROOM_STYLE_CHARACTER: groomStyleCharacterImg,
   groomStyleCharacter: groomStyleCharacterImg,
-  groomDetailFabric: "",
+  GROOM_DETAIL_FABRIC: groomDetailFabricImg,
+  groomDetailFabric: groomDetailFabricImg,
   groomAtelier: "",
   groomFinalCta: "",
 
