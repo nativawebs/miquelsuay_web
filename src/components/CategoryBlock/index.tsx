@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './CategoryBlock.module.css';
 import { AnimatedReveal } from '../AnimatedReveal';
+import { getSlotImage } from '../../content/image-manifest';
 
 export interface CategoryBlockProps {
   id: string;
@@ -29,6 +30,9 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
   imageSlotId2,
   onCtaClick
 }) => {
+  const primaryImg = getSlotImage(imageSlotId1);
+  const secondaryImg = getSlotImage(imageSlotId2);
+
   return (
     <section id={id} className={`${styles.categoryBlock} ${styles[variant]}`}>
       <div className={styles.container}>
@@ -64,24 +68,30 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
         <div className={styles.imageGrid}>
           <AnimatedReveal direction="clip-up" delay={200} className={styles.primaryFrameWrapper}>
             <div className={styles.primaryImage}>
-              {/* IMAGE_SLOT: {imageSlotId1} [{variant.toUpperCase()}_PRIMARY] */}
-              <div className={styles.imagePlaceholder}>
-                <div className={styles.slotInfo}>
-                  <span className={styles.slotLabel}>IMAGE_SLOT</span>
-                  <span className={styles.slotId}>{imageSlotId1}</span>
-                  <span className={styles.variantBadge}>{variant}</span>
+              {primaryImg ? (
+                <img src={primaryImg} alt={title} className={styles.productImage} />
+              ) : (
+                <div className={styles.imagePlaceholder}>
+                  <div className={styles.slotInfo}>
+                    <span className={styles.slotLabel}>IMAGE_SLOT</span>
+                    <span className={styles.slotId}>{imageSlotId1}</span>
+                    <span className={styles.variantBadge}>{variant}</span>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </AnimatedReveal>
 
           {imageSlotId2 && (
             <AnimatedReveal direction="up" delay={400} className={styles.secondaryFrameWrapper}>
               <div className={styles.secondaryImage}>
-                {/* IMAGE_SLOT: {imageSlotId2} [{variant.toUpperCase()}_SECONDARY] */}
-                <div className={styles.imagePlaceholderSecondary}>
-                  <span className={styles.slotIdSmall}>{imageSlotId2}</span>
-                </div>
+                {secondaryImg ? (
+                  <img src={secondaryImg} alt={`${title} detalle`} className={styles.productImage} />
+                ) : (
+                  <div className={styles.imagePlaceholderSecondary}>
+                    <span className={styles.slotIdSmall}>{imageSlotId2}</span>
+                  </div>
+                )}
               </div>
             </AnimatedReveal>
           )}
