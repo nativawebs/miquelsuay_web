@@ -3,10 +3,21 @@ import styles from './Home.module.css';
 import logoMiquel from '../../assets/logo_miquel.webp';
 import homeNovio from '../../assets/home_novio.jpg';
 import homeNovia from '../../assets/home_novia.jpg';
+import AuraCursor from '../../components/originkit/ui/aura-cursor';
 
 const App: React.FC = () => {
   return (
     <div className={styles.homeContainer}>
+      <div className={styles.backgroundAnimation}>
+        <AuraCursor 
+          label={false}
+          backdrop="light"
+          paletteColors={['#9D2149', '#C39F68', '#040404']}
+          densityDissipation={4}
+          splatRadius={6}
+        />
+      </div>
+
       <header className={styles.header}>
         <div className={styles.logo}>
           <img 
