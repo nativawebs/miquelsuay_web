@@ -12,7 +12,19 @@
   margin: 0 auto;
   padding: 0 var(--spacing-6);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* CTA on the right */
+  align-items: center;
+  position: relative;
+  min-height: 44px; /* Ensure space for the button */
+}
+
+.logoContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -21,9 +33,14 @@
 }
 
 .logoImage {
-  height: 24px;
+  height: 34px; /* Bigger logo */
   width: auto;
   display: block;
+}
+
+.actionContainer {
+  display: flex;
+  align-items: center;
 }
 
 .ctaButton {
@@ -47,7 +64,7 @@
   }
   
   .logoImage {
-    height: 20px;
+    height: 24px; /* Still prominent on mobile */
   }
 
   .ctaButton {
