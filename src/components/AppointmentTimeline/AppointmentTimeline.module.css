@@ -22,7 +22,7 @@
 }
 
 .subtitle {
-  color: #555555;
+  color: #222222;
   max-width: 580px;
   margin: 0 auto;
   font-size: 16px;
@@ -131,8 +131,8 @@
 }
 
 .stepDescription {
-  font-size: 13px;
-  color: #666;
+  font-size: 14px;
+  color: #333333;
   line-height: 1.5;
   margin: 0;
 }

@@ -27,11 +27,11 @@
 }
 
 .description {
-  color: #444444;
-  font-size: clamp(16px, 1.2vw, 18px);
-  line-height: 1.65;
+  color: #222222;
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.7;
   margin-bottom: var(--spacing-8);
-  max-width: 480px;
+  max-width: 500px;
 }
 
 .imageGrid {

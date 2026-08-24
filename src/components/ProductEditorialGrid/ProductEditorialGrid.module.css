@@ -21,7 +21,7 @@
 }
 
 .sectionSubtitle {
-  color: #666;
+  color: #222222;
   max-width: 540px;
   margin: 0 auto;
 }
@@ -131,7 +131,7 @@
 
 .productDescription {
   font-size: 14px;
-  color: #555555;
+  color: #333333;
   line-height: 1.6;
   margin-bottom: var(--spacing-6);
   flex: 1;

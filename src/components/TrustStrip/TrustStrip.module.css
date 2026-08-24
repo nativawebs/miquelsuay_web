@@ -96,10 +96,15 @@
 }
 
 .itemDescription {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
-  opacity: 0.8;
+  color: #333333;
   margin: 0;
+}
+
+.dark .itemDescription {
+  color: #E2E1E1;
+  opacity: 0.95;
 }
 
 @media (max-width: 768px) {

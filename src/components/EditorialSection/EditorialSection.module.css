@@ -48,10 +48,10 @@
 }
 
 .description {
-  color: #444444;
-  font-size: clamp(16px, 1.2vw, 18px);
+  color: #222222;
+  font-size: clamp(16px, 1.25vw, 18px);
   line-height: 1.7;
-  max-width: 480px;
+  max-width: 500px;
 }
 
 .burgundyLine {
