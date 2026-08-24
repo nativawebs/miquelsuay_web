@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './HeroLead.module.css';
 import { AnimatedReveal } from '../AnimatedReveal';
+import { getSlotImage } from '../../content/image-manifest';
 
 interface HeroLeadProps {
   variant?: 'novio' | 'mujer';
@@ -27,6 +28,9 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
   imageAltText,
   formComponent
 }) => {
+  const primaryImg = getSlotImage(imageSlotId);
+  const secondaryImg = getSlotImage(secondaryImageSlotId);
+
   return (
     <section className={`${styles.heroSection} ${styles[variant]}`}>
       {/* Background Geometric Accent Shape for Novio/Mujer */}
@@ -59,12 +63,20 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
           <div className={styles.imageWrapperMobile}>
             {/* IMAGE_SLOT: {imageSlotId} [Ratio 3:4 Mobile] */}
             <div className={styles.imagePlaceholderMobile} aria-label={imageAltText}>
-              <span className={styles.placeholderLabel}>[SLOT: {imageSlotId} | 3:4]</span>
+              {primaryImg ? (
+                <img src={primaryImg} alt={imageAltText} className={styles.heroImageMobile} />
+              ) : (
+                <span className={styles.placeholderLabel}>[SLOT: {imageSlotId} | 3:4]</span>
+              )}
             </div>
             {secondaryImageSlotId && (
               /* IMAGE_SLOT: {secondaryImageSlotId} [Ratio 1:1 Mobile Secondary] */
               <div className={styles.secondaryPlaceholderMobile}>
-                <span className={styles.placeholderLabel}>[SLOT: {secondaryImageSlotId}]</span>
+                {secondaryImg ? (
+                  <img src={secondaryImg} alt={imageAltText} className={styles.heroImageMobile} />
+                ) : (
+                  <span className={styles.placeholderLabel}>[SLOT: {secondaryImageSlotId}]</span>
+                )}
               </div>
             )}
           </div>
@@ -81,21 +93,29 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
       <div className={styles.desktopImageContainer}>
         <div className={styles.primaryDesktopFrame}>
           {/* IMAGE_SLOT: {imageSlotId} [Ratio 4:5 / High resolution editorial] */}
-          <div className={styles.imagePlaceholderDesktop} aria-label={imageAltText}>
-            <div className={styles.placeholderContent}>
-              <span className={styles.slotTag}>IMAGE_SLOT</span>
-              <span className={styles.slotId}>{imageSlotId}</span>
-              <span className={styles.slotSpec}>Editorial Hero · Desktop (4:5 / 16:9)</span>
+          {primaryImg ? (
+            <img src={primaryImg} alt={imageAltText} className={styles.heroImage} />
+          ) : (
+            <div className={styles.imagePlaceholderDesktop} aria-label={imageAltText}>
+              <div className={styles.placeholderContent}>
+                <span className={styles.slotTag}>IMAGE_SLOT</span>
+                <span className={styles.slotId}>{imageSlotId}</span>
+                <span className={styles.slotSpec}>Editorial Hero · Desktop (4:5 / 16:9)</span>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         {variant === 'mujer' && secondaryImageSlotId && (
           <div className={styles.secondaryDesktopFrame}>
             {/* IMAGE_SLOT: {secondaryImageSlotId} [Ratio 3:4 Secondary Overlap] */}
-            <div className={styles.secondaryPlaceholderDesktop}>
-              <span className={styles.slotIdSmall}>{secondaryImageSlotId}</span>
-            </div>
+            {secondaryImg ? (
+              <img src={secondaryImg} alt={imageAltText} className={styles.secondaryHeroImage} />
+            ) : (
+              <div className={styles.secondaryPlaceholderDesktop}>
+                <span className={styles.slotIdSmall}>{secondaryImageSlotId}</span>
+              </div>
+            )}
           </div>
         )}
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './EditorialSection.module.css';
 import { AnimatedReveal } from '../AnimatedReveal';
+import { getSlotImage } from '../../content/image-manifest';
 
 interface EditorialSectionProps {
   numberTag?: string;
@@ -23,6 +24,9 @@ export const EditorialSection: React.FC<EditorialSectionProps> = ({
   imageSlotId2,
   reversed = false,
 }) => {
+  const img1 = getSlotImage(imageSlotId1);
+  const img2 = getSlotImage(imageSlotId2);
+
   return (
     <section className={`${styles.editorialSection} ${reversed ? styles.reversed : ''}`}>
       <div className={styles.container}>
@@ -57,10 +61,14 @@ export const EditorialSection: React.FC<EditorialSectionProps> = ({
           <AnimatedReveal direction="clip-up" delay={200} className={styles.primaryFrameWrapper}>
             <div className={styles.primaryImage}>
               {/* IMAGE_SLOT: {imageSlotId1} */}
-              <div className={styles.imagePlaceholder}>
-                <span className={styles.slotTag}>IMAGE_SLOT</span>
-                <span className={styles.slotId}>{imageSlotId1}</span>
-              </div>
+              {img1 ? (
+                <img src={img1} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              ) : (
+                <div className={styles.imagePlaceholder}>
+                  <span className={styles.slotTag}>IMAGE_SLOT</span>
+                  <span className={styles.slotId}>{imageSlotId1}</span>
+                </div>
+              )}
             </div>
           </AnimatedReveal>
 
@@ -68,9 +76,13 @@ export const EditorialSection: React.FC<EditorialSectionProps> = ({
             <AnimatedReveal direction="up" delay={400} className={styles.secondaryFrameWrapper}>
               <div className={styles.secondaryImage}>
                 {/* IMAGE_SLOT: {imageSlotId2} */}
-                <div className={styles.imagePlaceholderSecondary}>
-                  <span className={styles.slotIdSmall}>{imageSlotId2}</span>
-                </div>
+                {img2 ? (
+                  <img src={img2} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  <div className={styles.imagePlaceholderSecondary}>
+                    <span className={styles.slotIdSmall}>{imageSlotId2}</span>
+                  </div>
+                )}
               </div>
             </AnimatedReveal>
           )}

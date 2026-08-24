@@ -1,3 +1,5 @@
+import groomHeroImg from '../assets/groom_hero.jpg';
+
 /**
  * Manifiesto de imágenes centralizado
  * Documento de la Verdad: Sección 11. Tratamiento obligatorio de imágenes
@@ -6,9 +8,10 @@
  * una vez aprobadas y provistas por el cliente. No inventar URLs.
  */
 
-export const images = {
+export const images: Record<string, string> = {
   // === Landing Hombre ===
-  groomHero: "",
+  GROOM_HERO: groomHeroImg,
+  groomHero: groomHeroImg,
   groomStyleClassic: "",
   groomStyleContemporary: "",
   groomStyleCharacter: "",
@@ -17,6 +20,7 @@ export const images = {
   groomFinalCta: "",
 
   // === Landing Mujer ===
+  WOMEN_HERO: "",
   womenHero: "",
   bridePrimary: "",
   brideSecondary: "",
@@ -29,3 +33,13 @@ export const images = {
   womenAtelier: "",
   womenFinalCta: "",
 };
+
+export const getSlotImage = (slotId?: string): string | undefined => {
+  if (!slotId) return undefined;
+  if (images[slotId]) return images[slotId];
+  const camelKey = slotId
+    .toLowerCase()
+    .replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+  return images[camelKey] || undefined;
+};
+
