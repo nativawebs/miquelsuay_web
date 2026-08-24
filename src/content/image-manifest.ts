@@ -1,4 +1,5 @@
 import groomHeroImg from '../assets/groom_hero.jpg';
+import groomStyleClassicImg from '../assets/groom_style_classic.jpg';
 
 /**
  * Manifiesto de imágenes centralizado
@@ -12,7 +13,8 @@ export const images: Record<string, string> = {
   // === Landing Hombre ===
   GROOM_HERO: groomHeroImg,
   groomHero: groomHeroImg,
-  groomStyleClassic: "",
+  GROOM_STYLE_CLASSIC: groomStyleClassicImg,
+  groomStyleClassic: groomStyleClassicImg,
   groomStyleContemporary: "",
   groomStyleCharacter: "",
   groomDetailFabric: "",
