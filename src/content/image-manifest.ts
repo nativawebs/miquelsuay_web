@@ -13,6 +13,8 @@ import bridePrimaryImg from '../assets/women_hero.png';
 import madrinaPrimaryImg from '../assets/madrina_primary.png';
 import madrinaSecondaryImg from '../assets/madrina_secondary.png';
 import graduationSecondaryImg from '../assets/graduation_secondary.jpg';
+import womenHeroFigureImg from '../assets/women_hero_figure.png';
+import womenHeroBgImg from '../assets/women_hero_bg.png';
 
 /**
  * Manifiesto de imágenes centralizado
@@ -41,6 +43,10 @@ export const images: Record<string, string> = {
   // === Landing Mujer ===
   WOMEN_HERO: womenHeroImg,
   womenHero: womenHeroImg,
+  WOMEN_HERO_FIGURE: womenHeroFigureImg,
+  womenHeroFigure: womenHeroFigureImg,
+  WOMEN_HERO_BG: womenHeroBgImg,
+  womenHeroBg: womenHeroBgImg,
   BRIDE_PRIMARY: bridePrimaryImg,
   bridePrimary: bridePrimaryImg,
   BRIDE_SECONDARY: brideSecondaryImg,

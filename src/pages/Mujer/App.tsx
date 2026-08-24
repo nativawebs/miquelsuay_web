@@ -41,8 +41,8 @@ const App: React.FC = () => {
           headlineItalic="un diseño a la altura"
           headlineEnd="de tu historia."
           subtext="Novia, Festera, Madrina o Graduación: descubre una experiencia de costura individualizada pensada para potenciar tu presencia natural."
-          imageSlotId="WOMEN_HERO"
-          secondaryImageSlotId="BRIDE_SECONDARY"
+          imageSlotId="WOMEN_HERO_BG"
+          parallaxFigureSlotId="WOMEN_HERO_FIGURE"
           imageAltText="Diseño de ceremonia femenino Miquel Suay"
           formComponent={
             <AppointmentForm 
