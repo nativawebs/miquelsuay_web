@@ -63,7 +63,7 @@
   max-width: 520px;
   position: relative;
   z-index: 2;
-  padding: var(--spacing-16) var(--spacing-8) var(--spacing-16) var(--spacing-10);
+  padding: var(--spacing-16) var(--spacing-6) var(--spacing-16) clamp(var(--spacing-8), 5vw, var(--spacing-16));
 }
 
 .headline {
@@ -251,7 +251,7 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  padding: var(--spacing-12) var(--spacing-8) var(--spacing-12) var(--spacing-6);
+  padding: var(--spacing-12) clamp(var(--spacing-6), 4vw, var(--spacing-12)) var(--spacing-12) var(--spacing-4);
 }
 
 .formRevealWrapper {
