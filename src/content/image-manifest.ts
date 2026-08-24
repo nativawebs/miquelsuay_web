@@ -12,6 +12,7 @@ import graduationPrimaryImg from '../assets/graduation_primary.png';
 import bridePrimaryImg from '../assets/women_hero.png';
 import madrinaPrimaryImg from '../assets/madrina_primary.png';
 import madrinaSecondaryImg from '../assets/madrina_secondary.png';
+import graduationSecondaryImg from '../assets/graduation_secondary.jpg';
 
 /**
  * Manifiesto de imágenes centralizado
@@ -54,7 +55,8 @@ export const images: Record<string, string> = {
   madrinaSecondary: madrinaSecondaryImg,
   GRADUATION_PRIMARY: graduationPrimaryImg,
   graduationPrimary: graduationPrimaryImg,
-  graduationSecondary: "",
+  GRADUATION_SECONDARY: graduationSecondaryImg,
+  graduationSecondary: graduationSecondaryImg,
   womenAtelier: "",
   womenFinalCta: "",
 };
