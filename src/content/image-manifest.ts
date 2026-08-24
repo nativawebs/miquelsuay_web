@@ -13,8 +13,8 @@ import bridePrimaryImg from '../assets/women_hero.png';
 import madrinaPrimaryImg from '../assets/madrina_primary.png';
 import madrinaSecondaryImg from '../assets/madrina_secondary.png';
 import graduationSecondaryImg from '../assets/graduation_secondary.jpg';
-import womenHeroFigureImg from '../assets/women_hero_figure.png';
-import womenHeroBgImg from '../assets/women_hero_bg.png';
+import womenHeroFigureImg from '../assets/mujer_sin_fondo.png';
+import womenHeroBgImg from '../assets/background.jpeg';
 
 /**
  * Manifiesto de imágenes centralizado
