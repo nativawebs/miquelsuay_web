@@ -185,7 +185,6 @@ const App: React.FC = () => {
         <FinalAppointmentCTA 
           eyebrow="Universo Mujer"
           title="Descubre la pieza perfecta para tu celebración"
-          imageSlotId="WOMEN_FINAL_CTA"
           onCtaClick={() => scrollToForm()}
         />
       </main>

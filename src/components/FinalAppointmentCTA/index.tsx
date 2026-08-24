@@ -7,7 +7,6 @@ interface FinalAppointmentCTAProps {
   eyebrow?: string;
   title: string;
   subtitle?: string;
-  imageSlotId: string;
   onCtaClick?: () => void;
 }
 
@@ -15,7 +14,6 @@ export const FinalAppointmentCTA: React.FC<FinalAppointmentCTAProps> = ({
   eyebrow = "Experiencia Inolvidable",
   title,
   subtitle = "Vive el proceso de confección y prueba en la tranquilidad de nuestro Atelier privado.",
-  imageSlotId,
   onCtaClick
 }) => {
   return (
