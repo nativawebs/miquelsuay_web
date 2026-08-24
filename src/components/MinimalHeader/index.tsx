@@ -14,8 +14,13 @@ export const MinimalHeader: React.FC<MinimalHeaderProps> = ({
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.logoContainer}>
-          {/* TODO BRAND FONT/LOGO: Sustituir texto por logo SVG oficial */}
-          <a href="/" className={styles.logo}>MIQUEL SUAY</a>
+          <a href="/" className={styles.logo}>
+            <img 
+              src="https://www.miquelsuay.com/wp-content/uploads/2026/06/logo-miquel-suay-2.svg" 
+              alt="Miquel Suay Logo" 
+              className={styles.logoImage} 
+            />
+          </a>
         </div>
         <div className={styles.actionContainer}>
           <button 

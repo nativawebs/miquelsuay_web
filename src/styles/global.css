@@ -106,3 +106,8 @@ img, picture, video, canvas, svg {
   color: var(--color-primary);
   font-weight: 600;
 }
+
+/* Utilidad para invertir el logo (pasarlo a blanco) en fondos oscuros */
+.invert-on-dark {
+  filter: brightness(0) invert(1);
+}

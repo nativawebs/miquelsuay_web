@@ -5,7 +5,13 @@ const App: React.FC = () => {
   return (
     <div className={styles.homeContainer}>
       <header className={styles.header}>
-        <div className={styles.logo}>MIQUEL SUAY</div>
+        <div className={styles.logo}>
+          <img 
+            src="https://www.miquelsuay.com/wp-content/uploads/2026/06/logo-miquel-suay-2.svg" 
+            alt="Miquel Suay Logo" 
+            className={styles.logoImage} 
+          />
+        </div>
       </header>
 
       <main className={styles.mainContent}>

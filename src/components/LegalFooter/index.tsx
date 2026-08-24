@@ -8,7 +8,11 @@ export const LegalFooter: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          MIQUEL SUAY
+          <img 
+            src="https://www.miquelsuay.com/wp-content/uploads/2026/06/logo-miquel-suay-2.svg" 
+            alt="Miquel Suay Logo" 
+            className={styles.logoImage} 
+          />
         </div>
         
         <div className={styles.links}>

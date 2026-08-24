@@ -16,12 +16,14 @@
 }
 
 .logo {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--color-black);
   margin-bottom: var(--spacing-6);
+  display: block;
+}
+
+.logoImage {
+  height: 24px;
+  width: auto;
+  display: block;
 }
 
 .links {

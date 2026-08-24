@@ -12,10 +12,13 @@
 }
 
 .logo {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  display: inline-block;
+}
+
+.logoImage {
+  height: 32px;
+  width: auto;
+  display: block;
 }
 
 .mainContent {
