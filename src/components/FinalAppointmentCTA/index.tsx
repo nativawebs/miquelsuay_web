@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FinalAppointmentCTA.module.css';
 import { AnimatedReveal } from '../AnimatedReveal';
+import boutiqueFacade from '../../assets/boutique_facade.jpg';
 
 interface FinalAppointmentCTAProps {
   eyebrow?: string;
@@ -20,10 +21,7 @@ export const FinalAppointmentCTA: React.FC<FinalAppointmentCTAProps> = ({
   return (
     <section className={styles.finalCtaSection}>
       <div className={styles.imageBackground}>
-        {/* IMAGE_SLOT_BACKGROUND: {imageSlotId} */}
-        <div className={styles.placeholderBackground}>
-          <span className={styles.slotTag}>IMAGE_SLOT: {imageSlotId}</span>
-        </div>
+        <img src={boutiqueFacade} alt="Atelier Miquel Suay" className={styles.bgImage} />
         <div className={styles.darkOverlay} />
       </div>
       
