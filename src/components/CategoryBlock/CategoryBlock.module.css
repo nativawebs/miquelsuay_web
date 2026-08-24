@@ -37,6 +37,8 @@
 .imageGrid {
   position: relative;
   width: 100%;
+  max-width: 460px; /* Restrict overall composition width to prevent gigantic heights */
+  margin: 0 auto;
   display: flex;
 }
 
