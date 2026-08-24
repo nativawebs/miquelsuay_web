@@ -1,7 +1,7 @@
 .heroSection {
   position: relative;
   background-color: var(--color-background);
-  min-height: calc(100vh - 80px);
+  height: clamp(680px, calc(100vh - 80px), 760px);
   display: flex;
   align-items: stretch;
   overflow: hidden;
@@ -45,11 +45,10 @@
   margin: 0 auto;
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr 0.85fr 1.1fr;
+  grid-template-columns: 31% 34% 35%;
   gap: 0;
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - 80px);
   position: relative;
   z-index: 10;
   align-items: stretch;
@@ -115,7 +114,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - 80px);
   overflow: hidden;
 }
 
@@ -244,7 +242,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - 80px);
   overflow: hidden;
 }
 
@@ -264,10 +261,11 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
-  height: 96%;
+  transform: translateX(-50%) scale(1.1);
+  transform-origin: bottom center;
+  height: 88%;
   width: auto;
-  max-width: 100%;
+  max-width: 160%;
   object-fit: contain;
   object-position: bottom center;
   display: block;
@@ -288,13 +286,12 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  padding: var(--spacing-12) clamp(var(--spacing-6), 4vw, var(--spacing-12)) var(--spacing-12) var(--spacing-4);
+  padding: 0 var(--spacing-6);
 }
 
 .formRevealWrapper {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  max-width: 440px;
 }
 
 /* Mobile Image wrapper */
@@ -304,7 +301,7 @@
 
 .imagePlaceholderMobile {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: clamp(480px, 60vh, 560px);
   background-color: #E2E1E1;
   display: flex;
   align-items: center;
@@ -344,51 +341,7 @@
   letter-spacing: 0.05em;
 }
 
-/* Scroll Indicator */
-.scrollIndicator {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 10;
-  opacity: 0.7;
-}
-
-.scrollText {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--color-black);
-}
-
-.scrollLine {
-  width: 1px;
-  height: 28px;
-  background-color: var(--color-primary);
-  animation: scrollPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-}
-
-@keyframes scrollPulse {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  50.1% { transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
-
 /* Responsive Adaptations */
-@media (max-width: 1280px) {
-  .container {
-    grid-template-columns: 1fr 0.8fr 1.05fr;
-  }
-
-  .headline {
-    font-size: clamp(26px, 2.4vw, 36px);
-  }
-}
 
 @media (max-width: 1060px) {
   .heroSection {
@@ -438,10 +391,6 @@
 
   .imageWrapperMobile {
     max-width: 100%;
-  }
-
-  .scrollIndicator {
-    display: none;
   }
 }
 

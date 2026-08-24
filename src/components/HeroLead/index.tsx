@@ -153,11 +153,8 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
           </AnimatedReveal>
         </div>
       </div>
-
-      <div className={styles.scrollIndicator} aria-hidden="true">
-        <span className={styles.scrollText}>Descubrir</span>
-        <div className={styles.scrollLine} />
-      </div>
     </section>
   );
 };
+
+export default HeroLead;
