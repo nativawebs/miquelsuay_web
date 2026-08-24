@@ -58,7 +58,7 @@ export const EditorialSection: React.FC<EditorialSectionProps> = ({
         </div>
         
         <div className={styles.imageGrid}>
-          <AnimatedReveal direction="clip-up" delay={200} className={styles.primaryFrameWrapper}>
+          <AnimatedReveal direction="up" delay={200} className={styles.primaryFrameWrapper}>
             <div className={styles.primaryImage}>
               {/* IMAGE_SLOT: {imageSlotId1} */}
               {img1 ? (

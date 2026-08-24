@@ -66,7 +66,7 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
         </div>
         
         <div className={styles.imageGrid}>
-          <AnimatedReveal direction="clip-up" delay={200} className={styles.primaryFrameWrapper}>
+          <AnimatedReveal direction="up" delay={200} className={styles.primaryFrameWrapper}>
             <div className={styles.primaryImage}>
               {primaryImg ? (
                 <img src={primaryImg} alt={title} className={styles.productImage} />

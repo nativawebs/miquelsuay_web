@@ -34,10 +34,8 @@
   transform: none;
 }
 
-:global(html.js-enabled) .clip-up {
-  transform: translateY(20px);
-  clip-path: inset(100% 0 0 0);
-}
+/* clip-up removed: clip-path: inset(100%) caused primary images to be invisible
+   when IntersectionObserver failed or fired late. Use direction="up" instead. */
 
 /* Revealed state */
 :global(html.js-enabled) .revealBase.isRevealed {
