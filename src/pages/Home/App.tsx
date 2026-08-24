@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Home.module.css';
 import logoMiquel from '../../assets/logo_miquel.webp';
+import homeNovio from '../../assets/home_novio.jpg';
+import homeNovia from '../../assets/home_novia.jpg';
 
 const App: React.FC = () => {
   return (
@@ -22,8 +24,7 @@ const App: React.FC = () => {
         <div className={styles.linksContainer}>
           <a href="/novio/" className={styles.linkCard}>
             <div className={styles.cardImage}>
-              {/* IMAGE_SLOT: HOME_GROOM */}
-              <div className={styles.placeholderImage}></div>
+              <img src={homeNovio} alt="Colección Novio" className={styles.categoryImage} />
             </div>
             <div className={styles.cardContent}>
               <h2>Colección Novio</h2>
@@ -33,8 +34,7 @@ const App: React.FC = () => {
 
           <a href="/mujer/" className={styles.linkCard}>
             <div className={styles.cardImage}>
-              {/* IMAGE_SLOT: HOME_WOMEN */}
-              <div className={styles.placeholderImage}></div>
+              <img src={homeNovia} alt="Universo Mujer" className={styles.categoryImage} />
             </div>
             <div className={styles.cardContent}>
               <h2>Universo Mujer</h2>
