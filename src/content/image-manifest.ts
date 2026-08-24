@@ -4,6 +4,7 @@ import groomStyleContemporaryImg from '../assets/groom_style_contemporary.jpg';
 import groomStyleCharacterImg from '../assets/groom_style_character.jpg';
 import groomDetailFabricImg from '../assets/groom_detail_fabric.png';
 import groomAtelierImg from '../assets/groom_atelier.png';
+import womenHeroImg from '../assets/women_hero.png';
 
 /**
  * Manifiesto de imágenes centralizado
@@ -30,8 +31,8 @@ export const images: Record<string, string> = {
   groomFinalCta: "",
 
   // === Landing Mujer ===
-  WOMEN_HERO: "",
-  womenHero: "",
+  WOMEN_HERO: womenHeroImg,
+  womenHero: womenHeroImg,
   bridePrimary: "",
   brideSecondary: "",
   festeraPrimary: "",
