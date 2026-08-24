@@ -95,7 +95,7 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
           </div>
         </div>
 
-        {/* Column 2: Desktop High-Fashion Editorial Image (3:4 ratio) */}
+        {/* Column 2: Full-bleed Editorial Fashion Portrait */}
         <div className={styles.imageColumnDesktop}>
           <AnimatedReveal direction="up" delay={250} className={styles.imageRevealWrapper}>
             <div className={styles.editorialFrame}>
@@ -106,27 +106,10 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
                   <div className={styles.placeholderContent}>
                     <span className={styles.slotTag}>IMAGE_SLOT</span>
                     <span className={styles.slotId}>{imageSlotId}</span>
-                    <span className={styles.slotSpec}>Editorial Hero · 3:4</span>
+                    <span className={styles.slotSpec}>Editorial Hero · Full Height</span>
                   </div>
                 </div>
               )}
-
-              {/* Secondary Overlapping Frame (e.g. for Mujer) */}
-              {secondaryImageSlotId && (
-                <div className={styles.secondaryDesktopFrame}>
-                  {secondaryImg ? (
-                    <img src={secondaryImg} alt={imageAltText} className={styles.secondaryHeroImage} />
-                  ) : (
-                    <div className={styles.secondaryPlaceholderDesktop}>
-                      <span className={styles.slotIdSmall}>{secondaryImageSlotId}</span>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              <div className={styles.frameCaption}>
-                <span>Miquel Suay · Atelier</span>
-              </div>
             </div>
           </AnimatedReveal>
         </div>
