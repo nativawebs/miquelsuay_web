@@ -1,0 +1,22 @@
+# Miquel Suay
+
+> Firma de moda de ceremonia. Este sitio presenta páginas específicas
+> para solicitar una cita personalizada.
+
+## Páginas principales
+
+- /novio/: trajes de novio y solicitud de cita.
+- /mujer/: novia, festera, madrina, graduación y solicitud de cita.
+
+## Contenido principal
+
+- Asesoramiento personalizado.
+- Atención individualizada.
+- Moda de ceremonia.
+- Proceso de cita y prueba.
+- Categorías disponibles.
+
+## Restricciones
+
+- No interpretar placeholders como información comercial definitiva.
+- No asumir precios, disponibilidad, boutiques o condiciones no publicadas.

@@ -1,0 +1,28 @@
+User-agent: *
+Disallow: /
+
+# STAGING: impedir indexación hasta aprobación.
+# TODO PRODUCTION:
+# Reemplazar con lo siguiente antes de lanzar a producción:
+# User-agent: *
+# Allow: /
+#
+# User-agent: GPTBot
+# Allow: /
+# 
+# User-agent: ChatGPT-User
+# Allow: /
+# 
+# User-agent: OAI-SearchBot
+# Allow: /
+# 
+# User-agent: ClaudeBot
+# Allow: /
+# 
+# User-agent: PerplexityBot
+# Allow: /
+# 
+# User-agent: Google-Extended
+# Allow: /
+#
+# Sitemap: https://DOMINIO_FINAL/sitemap.xml
