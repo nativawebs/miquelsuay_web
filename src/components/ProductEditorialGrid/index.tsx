@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ProductEditorialGrid.module.css';
 import { AnimatedReveal } from '../AnimatedReveal';
+import { getSlotImage } from '../../content/image-manifest';
 
 export interface ProductItem {
   imageSlotId: string;
@@ -40,17 +41,24 @@ export const ProductEditorialGrid: React.FC<ProductEditorialGridProps> = ({
         </div>
         
         <div className={styles.editorialGrid}>
-          {products.map((product, index) => (
-            <AnimatedReveal key={index} direction="up" delay={index * 150} className={styles.cardWrapper}>
-              <article className={styles.verticalCard}>
-                <div className={styles.imageFrame}>
-                  {/* IMAGE_SLOT: {product.imageSlotId} */}
-                  <div className={styles.imagePlaceholder}>
-                    <span className={styles.slotTag}>IMAGE_SLOT</span>
-                    <span className={styles.slotId}>{product.imageSlotId}</span>
+          {products.map((product, index) => {
+            const productImg = getSlotImage(product.imageSlotId);
+
+            return (
+              <AnimatedReveal key={index} direction="up" delay={index * 150} className={styles.cardWrapper}>
+                <article className={styles.verticalCard}>
+                  <div className={styles.imageFrame}>
+                    {/* IMAGE_SLOT: {product.imageSlotId} */}
+                    {productImg ? (
+                      <img src={productImg} alt={product.name} className={styles.productImage} />
+                    ) : (
+                      <div className={styles.imagePlaceholder}>
+                        <span className={styles.slotTag}>IMAGE_SLOT</span>
+                        <span className={styles.slotId}>{product.imageSlotId}</span>
+                      </div>
+                    )}
+                    <div className={styles.hoverOverlay} />
                   </div>
-                  <div className={styles.hoverOverlay} />
-                </div>
 
                 <div className={styles.cardInfo}>
                   <span className={styles.cardNumber}>{(index + 1).toString().padStart(2, '0')}</span>
@@ -68,7 +76,8 @@ export const ProductEditorialGrid: React.FC<ProductEditorialGridProps> = ({
                 </div>
               </article>
             </AnimatedReveal>
-          ))}
+          );
+        })}
         </div>
       </div>
     </section>
