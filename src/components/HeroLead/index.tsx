@@ -40,6 +40,7 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
       </div>
 
       <div className={styles.container}>
+        {/* Column 1: Editorial text */}
         <div className={styles.contentColumn}>
           <AnimatedReveal direction="up" delay={100}>
             <span className="eyebrow">{eyebrow}</span>
@@ -59,7 +60,19 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
             <p className={styles.subtext}>{subtext}</p>
           </AnimatedReveal>
 
-          {/* Collage / Editorial Image frame for Mobile */}
+          {/* Value Highlights Badges */}
+          <AnimatedReveal direction="up" delay={350} className={styles.highlightsWrapper}>
+            <div className={styles.highlightItem}>
+              <span className={styles.highlightDot} />
+              <span>Atelier Privado</span>
+            </div>
+            <div className={styles.highlightItem}>
+              <span className={styles.highlightDot} />
+              <span>Patronaje a Medida</span>
+            </div>
+          </AnimatedReveal>
+
+          {/* Collage / Editorial Image frame for Mobile & Tablet */}
           <div className={styles.imageWrapperMobile}>
             {/* IMAGE_SLOT: {imageSlotId} [Ratio 3:4 Mobile] */}
             <div className={styles.imagePlaceholderMobile} aria-label={imageAltText}>
@@ -82,6 +95,43 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
           </div>
         </div>
 
+        {/* Column 2: Desktop High-Fashion Editorial Image (3:4 ratio) */}
+        <div className={styles.imageColumnDesktop}>
+          <AnimatedReveal direction="up" delay={250} className={styles.imageRevealWrapper}>
+            <div className={styles.editorialFrame}>
+              {primaryImg ? (
+                <img src={primaryImg} alt={imageAltText} className={styles.heroImage} />
+              ) : (
+                <div className={styles.imagePlaceholderDesktop} aria-label={imageAltText}>
+                  <div className={styles.placeholderContent}>
+                    <span className={styles.slotTag}>IMAGE_SLOT</span>
+                    <span className={styles.slotId}>{imageSlotId}</span>
+                    <span className={styles.slotSpec}>Editorial Hero · 3:4</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Secondary Overlapping Frame (e.g. for Mujer) */}
+              {secondaryImageSlotId && (
+                <div className={styles.secondaryDesktopFrame}>
+                  {secondaryImg ? (
+                    <img src={secondaryImg} alt={imageAltText} className={styles.secondaryHeroImage} />
+                  ) : (
+                    <div className={styles.secondaryPlaceholderDesktop}>
+                      <span className={styles.slotIdSmall}>{secondaryImageSlotId}</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className={styles.frameCaption}>
+                <span>Miquel Suay · Atelier</span>
+              </div>
+            </div>
+          </AnimatedReveal>
+        </div>
+
+        {/* Column 3: Form Column */}
         <div className={styles.formColumn}>
           <AnimatedReveal direction="up" delay={400} className={styles.formRevealWrapper}>
             {formComponent}
@@ -89,38 +139,7 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
         </div>
       </div>
 
-      {/* Editorial Image Side for Desktop (55-65% width) */}
-      <div className={styles.desktopImageContainer}>
-        <div className={styles.primaryDesktopFrame}>
-          {/* IMAGE_SLOT: {imageSlotId} [Ratio 4:5 / High resolution editorial] */}
-          {primaryImg ? (
-            <img src={primaryImg} alt={imageAltText} className={styles.heroImage} />
-          ) : (
-            <div className={styles.imagePlaceholderDesktop} aria-label={imageAltText}>
-              <div className={styles.placeholderContent}>
-                <span className={styles.slotTag}>IMAGE_SLOT</span>
-                <span className={styles.slotId}>{imageSlotId}</span>
-                <span className={styles.slotSpec}>Editorial Hero · Desktop (4:5 / 16:9)</span>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {variant === 'mujer' && secondaryImageSlotId && (
-          <div className={styles.secondaryDesktopFrame}>
-            {/* IMAGE_SLOT: {secondaryImageSlotId} [Ratio 3:4 Secondary Overlap] */}
-            {secondaryImg ? (
-              <img src={secondaryImg} alt={imageAltText} className={styles.secondaryHeroImage} />
-            ) : (
-              <div className={styles.secondaryPlaceholderDesktop}>
-                <span className={styles.slotIdSmall}>{secondaryImageSlotId}</span>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-
-      {/* Discreett Scroll Indicator */}
+      {/* Discreet Scroll Indicator */}
       <div className={styles.scrollIndicator} aria-hidden="true">
         <span className={styles.scrollText}>Descubrir</span>
         <div className={styles.scrollLine} />
@@ -128,3 +147,4 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
     </section>
   );
 };
+
