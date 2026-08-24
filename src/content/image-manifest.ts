@@ -3,6 +3,7 @@ import groomStyleClassicImg from '../assets/groom_style_classic.jpg';
 import groomStyleContemporaryImg from '../assets/groom_style_contemporary.jpg';
 import groomStyleCharacterImg from '../assets/groom_style_character.jpg';
 import groomDetailFabricImg from '../assets/groom_detail_fabric.png';
+import groomAtelierImg from '../assets/groom_atelier.png';
 
 /**
  * Manifiesto de imágenes centralizado
@@ -24,7 +25,8 @@ export const images: Record<string, string> = {
   groomStyleCharacter: groomStyleCharacterImg,
   GROOM_DETAIL_FABRIC: groomDetailFabricImg,
   groomDetailFabric: groomDetailFabricImg,
-  groomAtelier: "",
+  GROOM_ATELIER: groomAtelierImg,
+  groomAtelier: groomAtelierImg,
   groomFinalCta: "",
 
   // === Landing Mujer ===
