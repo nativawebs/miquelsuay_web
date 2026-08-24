@@ -1,10 +1,11 @@
-.finalCta {
+.finalCtaSection {
   position: relative;
-  min-height: 500px;
+  min-height: 520px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: var(--spacing-24) var(--spacing-6);
 }
 
 .imageBackground {
@@ -19,45 +20,59 @@
 .placeholderBackground {
   width: 100%;
   height: 100%;
-  background-color: #333;
-  /* Simular overlay oscuro si hubiera imagen */
-  background-image: linear-gradient(rgba(4, 4, 4, 0.4), rgba(4, 4, 4, 0.7));
+  background: linear-gradient(135deg, #1C1B1B 0%, #040404 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.content {
+.slotTag {
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.2em;
+}
+
+.darkOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(4,4,4,0.4) 0%, rgba(4,4,4,0.85) 100%);
+}
+
+.contentContainer {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: var(--spacing-8);
-  max-width: 800px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.eyebrowText {
+  color: var(--color-primary);
 }
 
 .title {
   color: var(--color-white);
+  margin-bottom: var(--spacing-4);
+  font-size: clamp(32px, 4.5vw, 56px);
+}
+
+.subtitle {
+  color: #CCCCCC;
+  font-size: clamp(16px, 1.2vw, 18px);
   margin-bottom: var(--spacing-8);
+  line-height: 1.6;
 }
 
-.ctaButton {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  height: 54px;
-  padding: 0 var(--spacing-8);
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 2px;
-  transition: background-color 0.2s ease;
-}
-
-.ctaButton:hover {
-  background-color: #7A1938;
+.ctaBtn {
+  margin-top: var(--spacing-2);
 }
 
 @media (max-width: 768px) {
-  .finalCta {
+  .finalCtaSection {
     min-height: 400px;
-  }
-  
-  .content {
-    padding: var(--spacing-6);
+    padding: var(--spacing-16) var(--spacing-4);
   }
 }

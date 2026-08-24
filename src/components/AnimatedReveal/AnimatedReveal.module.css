@@ -1,0 +1,57 @@
+/* Standard behavior: If JS is disabled or not yet initialized, content is fully visible */
+.revealBase {
+  opacity: 1;
+  transform: none;
+  clip-path: none;
+}
+
+/* Apply animation states only when html has .js-enabled */
+:global(html.js-enabled) .revealBase {
+  opacity: 0;
+  transition-property: opacity, transform, clip-path;
+  transition-duration: var(--motion-base, 650ms);
+  transition-timing-function: var(--ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
+  will-change: opacity, transform;
+}
+
+:global(html.js-enabled) .up {
+  transform: translateY(28px);
+}
+
+:global(html.js-enabled) .down {
+  transform: translateY(-28px);
+}
+
+:global(html.js-enabled) .left {
+  transform: translateX(28px);
+}
+
+:global(html.js-enabled) .right {
+  transform: translateX(-28px);
+}
+
+:global(html.js-enabled) .none {
+  transform: none;
+}
+
+:global(html.js-enabled) .clip-up {
+  transform: translateY(20px);
+  clip-path: inset(100% 0 0 0);
+}
+
+/* Revealed state */
+:global(html.js-enabled) .revealBase.isRevealed {
+  opacity: 1;
+  transform: translate(0, 0);
+  clip-path: inset(0 0 0 0);
+}
+
+/* Accessible reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  :global(html.js-enabled) .revealBase {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+}

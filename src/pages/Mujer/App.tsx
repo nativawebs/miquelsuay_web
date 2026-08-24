@@ -5,7 +5,7 @@ import { AppointmentForm } from '../../components/AppointmentForm';
 import { TrustStrip } from '../../components/TrustStrip';
 import { CategorySelector } from '../../components/CategorySelector';
 import { CategoryBlock } from '../../components/CategoryBlock';
-import { GridSection } from '../../components/GridSection';
+import { AppointmentTimeline } from '../../components/AppointmentTimeline';
 import { FinalAppointmentCTA } from '../../components/FinalAppointmentCTA';
 import { LegalFooter } from '../../components/LegalFooter';
 
@@ -23,10 +23,10 @@ const App: React.FC = () => {
   };
 
   const categories = [
-    { id: 'seccion-novia', label: 'Novia' },
-    { id: 'seccion-festera', label: 'Festera' },
-    { id: 'seccion-madrina', label: 'Madrina' },
-    { id: 'seccion-graduacion', label: 'Graduación' }
+    { id: 'seccion-novia', label: 'Novia', value: 'Novia' },
+    { id: 'seccion-festera', label: 'Festera', value: 'Festera' },
+    { id: 'seccion-madrina', label: 'Madrina', value: 'Madrina' },
+    { id: 'seccion-graduacion', label: 'Graduación', value: 'Graduacion' }
   ];
 
   return (
@@ -35,11 +35,15 @@ const App: React.FC = () => {
       
       <main>
         <HeroLead 
-          eyebrow="UNIVERSO MUJER · MIQUEL SUAY"
-          headline="Hay momentos que merecen un diseño a tu altura."
-          subtext="Novia, festera, madrina o graduación: encuentra una pieza que refleje quién eres y vive una experiencia de asesoramiento creada alrededor de ti."
+          variant="mujer"
+          eyebrow="Universo Mujer · Miquel Suay"
+          headlineTitle="Momentos que merecen"
+          headlineItalic="un diseño a la altura"
+          headlineEnd="de tu historia."
+          subtext="Novia, Festera, Madrina o Graduación: descubre una experiencia de costura individualizada pensada para potenciar tu presencia natural."
           imageSlotId="WOMEN_HERO"
-          imageAltText="Mujer con diseño Miquel Suay"
+          secondaryImageSlotId="BRIDE_SECONDARY"
+          imageAltText="Diseño de ceremonia femenino Miquel Suay"
           formComponent={
             <AppointmentForm 
               landingType="mujer" 
@@ -49,90 +53,138 @@ const App: React.FC = () => {
           }
         />
 
-        <CategorySelector categories={categories} />
+        <CategorySelector 
+          categories={categories} 
+          onSelectCategory={(val) => setSelectedCategory(val)}
+        />
 
         <TrustStrip 
+          theme="dark"
           items={[
-            { title: "Oficio y taller", description: "Artesanía y precisión en cada puntada." },
-            { title: "Atención individual", description: "Un espacio donde solo importas tú." },
-            { title: "Acompañamiento", description: "Asesoramiento estilístico desde la primera prueba." }
+            { 
+              number: "01", 
+              title: "Alta Costura & Atelier", 
+              description: "Patronaje impecable y acabados artesanales.",
+              highlighted: true 
+            },
+            { 
+              number: "02", 
+              title: "Espacio Privado", 
+              description: "Probadores exclusivos con calma y reserva absoluta." 
+            },
+            { 
+              number: "03", 
+              title: "Asesoramiento Experto", 
+              description: "Estilistas guiando cada decisión de tejidos y silueta." 
+            }
           ]}
         />
 
+        {/* VARIANT 1: BRIDE */}
         <CategoryBlock
           id="seccion-novia"
           categoryValue="Novia"
-          title="El vestido empieza contigo."
-          description="No buscamos encajarte en una idea de novia. Te acompañamos a descubrir el diseño que conecta con tu historia, tu celebración y tu manera de sentir."
-          ctaText="Quiero encontrar mi vestido"
+          variant="bride"
+          eyebrowText="Colección Nupcial"
+          title="El vestido empieza"
+          titleItalic="con tu propia historia."
+          description="Sin encajarte en cánones preestablecidos. Diseñamos o adaptamos la pieza para que refleje tu sensibilidad, la atmósfera de tu boda y tu soltura al caminar."
+          ctaText="Descubrir Novia & Reservar Cita"
           imageSlotId1="BRIDE_PRIMARY"
           imageSlotId2="BRIDE_SECONDARY"
           onCtaClick={scrollToForm}
         />
 
+        {/* VARIANT 2: FESTERA */}
         <CategoryBlock
           id="seccion-festera"
           categoryValue="Festera"
-          title="Tradición con una forma muy tuya de vivirla."
-          description="Diseños que respetan el valor de la indumentaria festera y expresan presencia, oficio y personalidad."
-          ctaText="Solicitar cita Festera"
+          variant="festera"
+          eyebrowText="Tradición & Presencia"
+          title="Oficio artesanal"
+          titleItalic="con carácter propio."
+          description="Diseños que honran el arraigo y el valor festivo, manteniendo el equilibrio entre riqueza textil, estructura y comodidad para jornadas intensas."
+          ctaText="Solicitar Cita Festera"
           imageSlotId1="FESTERA_PRIMARY"
           imageSlotId2="FESTERA_SECONDARY"
-          reversed
           onCtaClick={scrollToForm}
         />
 
+        {/* VARIANT 3: MADRINA */}
         <CategoryBlock
           id="seccion-madrina"
           categoryValue="Madrina"
-          title="Elegancia para un papel esencial."
-          description="Una selección pensada para acompañarte con seguridad, sofisticación y equilibrio en uno de los días más importantes de la familia."
-          ctaText="Solicitar cita Madrina"
+          variant="madrina"
+          eyebrowText="Distinción & Protocolo"
+          title="Elegancia sobria para"
+          titleItalic="un papel inolvidable."
+          description="Siluetas estilizadas, tonos depurados y caídas nobles pensadas para acompañar a la familia con serenidad, distinción y protagonismo medido."
+          ctaText="Solicitar Cita Madrina"
           imageSlotId1="MADRINA_PRIMARY"
           imageSlotId2="MADRINA_SECONDARY"
           onCtaClick={scrollToForm}
         />
 
+        {/* VARIANT 4: GRADUATION */}
         <CategoryBlock
           id="seccion-graduacion"
           categoryValue="Graduacion"
-          title="Tu siguiente capítulo empieza así."
-          description="Looks actuales y especiales para celebrar todo lo que has conseguido y entrar con confianza en lo que viene."
-          ctaText="Encontrar mi look"
+          variant="graduation"
+          eyebrowText="Diseño Contemporáneo"
+          title="Tu nuevo capítulo"
+          titleItalic="empieza con fuerza."
+          description="Propuestas frescas, cortes asimétricos y elegancia joven para celebrar la culminación de una etapa y entrar con plena seguridad en la siguiente."
+          ctaText="Encontrar mi Look de Graduación"
           imageSlotId1="GRADUATION_PRIMARY"
           imageSlotId2="GRADUATION_SECONDARY"
-          reversed
           onCtaClick={scrollToForm}
         />
 
-        <GridSection 
-          title="La experiencia de cita"
-          subtitle="Desde el primer momento, nuestro equipo trabaja para que te sientas segura de tu elección."
-          columns={4}
-          items={[
-            { title: "Escucha", description: "Entendemos la naturaleza de tu celebración y lo que deseas proyectar." },
-            { title: "Selección", description: "Buscamos los patrones y tejidos que favorecen y encajan con tu estilo." },
-            { title: "Prueba y Ajustes", description: "Trabajamos en las modificaciones necesarias para un ajuste impecable." },
-            { title: "Entrega", description: "Comprobamos el resultado final para garantizar tu tranquilidad." }
+        <AppointmentTimeline 
+          title="Tu Visita Privada al Atelier"
+          subtitle="Cinco pasos diseñados para tu tranquilidad y confianza absoluta."
+          steps={[
+            {
+              number: "01",
+              title: "Escucha",
+              description: "Entendemos la naturaleza de tu celebración y lo que deseas proyectar."
+            },
+            {
+              number: "02",
+              title: "Selección",
+              description: "Buscamos los patrones y tejidos que favorecen y encajan con tu estilo."
+            },
+            {
+              number: "03",
+              title: "Modelado",
+              description: "Adaptamos las líneas de la prenda directamente sobre tu silueta."
+            },
+            {
+              number: "04",
+              title: "Ajustes",
+              description: "Pruebas de costura en taller propio con modistas experimentadas."
+            },
+            {
+              number: "05",
+              title: "Entrega Final",
+              description: "Comprobación del acabado impecable para que disfrutes tu gran día."
+            }
           ]}
         />
 
-        <GridSection 
-          title="Por qué Miquel Suay"
-          theme="dark"
-          columns={3}
+        <TrustStrip 
+          title="Garantías del Universo Miquel Suay"
+          theme="light"
           items={[
-            { title: "Oficio y tradición", description: "Décadas de experiencia creando moda para ceremonias." },
-            { title: "Asesoramiento experto", description: "Te ayudamos a encontrar equilibrio entre protocolo y personalidad." },
-            { title: "Atención individual", description: "Citas privadas para que puedas probar con calma y confianza." },
-            { title: "Selección cuidada", description: "Materiales y diseños exclusivos." },
-            { title: "Arreglos precisos", description: "Taller propio con profesionales experimentadas." },
-            { title: "Acompañamiento", description: "Estamos contigo en cada paso hasta el día del evento." }
+            { title: "Taller Propio de Modistas", description: "Confección y modificaciones realizándolas en nuestras propias manos." },
+            { title: "Citas Privadas e Íntimas", description: "Atención sin prisas para que pruebes con total tranquilidad." },
+            { title: "Garantía de Entrega", description: "Tiempos asegurados para tu evento sin incertidumbres." }
           ]}
         />
 
         <FinalAppointmentCTA 
-          title="Descubre nuestro Universo Mujer"
+          eyebrow="Universo Mujer"
+          title="Descubre la pieza perfecta para tu celebración"
           imageSlotId="WOMEN_FINAL_CTA"
           onCtaClick={() => scrollToForm()}
         />

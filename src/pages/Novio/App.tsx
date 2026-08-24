@@ -5,7 +5,7 @@ import { AppointmentForm } from '../../components/AppointmentForm';
 import { TrustStrip } from '../../components/TrustStrip';
 import { EditorialSection } from '../../components/EditorialSection';
 import { ProductEditorialGrid } from '../../components/ProductEditorialGrid';
-import { GridSection } from '../../components/GridSection';
+import { AppointmentTimeline } from '../../components/AppointmentTimeline';
 import { FinalAppointmentCTA } from '../../components/FinalAppointmentCTA';
 import { LegalFooter } from '../../components/LegalFooter';
 
@@ -23,80 +23,117 @@ const App: React.FC = () => {
       
       <main>
         <HeroLead 
-          eyebrow="COLECCIÓN NOVIO · MIQUEL SUAY"
-          headline="Tu traje de novio debería hablar de ti antes de que digas una palabra."
-          subtext="Descubre una selección de trajes de ceremonia y vive una experiencia de asesoramiento pensada para encontrar el corte, el estilo y los detalles que realmente te representan."
+          variant="novio"
+          eyebrow="Colección Novio · Miquel Suay"
+          headlineTitle="Tu traje debería hablar de ti"
+          headlineItalic="antes de que digas"
+          headlineEnd="una sola palabra."
+          subtext="Diseño de alta costura y un protocolo personalizado para encontrar la caída, el corte y los detalles que representan tu carácter."
           imageSlotId="GROOM_HERO"
-          imageAltText="Novio con traje Miquel Suay"
+          imageAltText="Novio vistiendo traje de alta costura Miquel Suay"
           formComponent={<AppointmentForm landingType="novio" defaultCategory="Novio" />}
         />
 
         <TrustStrip 
+          theme="dark"
           items={[
-            { title: "Más de 40 años", description: "De oficio y excelencia en la sastrería y ceremonia." },
-            { title: "Atención individual", description: "Un espacio reservado para ti y tus acompañantes." },
-            { title: "Taller y ajustes", description: "Confección y adaptación precisa a tus medidas." }
+            { 
+              number: "01", 
+              title: "+40 Años de Oficio", 
+              description: "Maestría sastrera tradicional fusionada con patronaje contemporáneo.",
+              highlighted: true 
+            },
+            { 
+              number: "02", 
+              title: "Atención Individual", 
+              description: "Espacio y tiempo reservados en exclusiva para ti y tus acompañantes." 
+            },
+            { 
+              number: "03", 
+              title: "Ajuste en Atelier", 
+              description: "Modistas y sastres propios afinando cada milímetro de tu pieza." 
+            }
           ]}
         />
 
         <EditorialSection 
-          title="Tu estilo, no un uniforme"
-          description="Vestirse para el gran día no consiste en parecer otro. Consiste en verte en tu mejor versión. Cada elección empieza escuchándote: el tipo de celebración, tu forma de vestir y cómo quieres sentirte."
+          numberTag="01"
+          eyebrow="Filosofía de Alta Costura"
+          title="Tu estilo verdadero,"
+          titleItalic="no un uniforme."
+          description="El traje para tu enlace no consiste en encajar en un molde prediseñado, sino en proyectar tu mejor versión. Escuchamos tu idea de celebración, tu fisonomía y el lugar del evento antes de trazar la primera aguja."
           imageSlotId1="GROOM_STYLE_CLASSIC"
           imageSlotId2="GROOM_STYLE_CONTEMPORARY"
         />
 
         <ProductEditorialGrid 
           title="Selección Protagonista"
+          subtitle="Explora los tres pilares de estilo que definen nuestra visión de la ceremonia masculina."
+          onCtaClick={scrollToForm}
           products={[
             {
               name: "Clásico Contemporáneo",
-              description: "Líneas puras, tejidos nobles y un corte impecable que trasciende las temporadas.",
+              description: "Líneas puras, solapas depuradas y tejidos nobles de lana virgen y seda que trascienden el tiempo.",
               imageSlotId: "GROOM_STYLE_CHARACTER"
             },
             {
               name: "Ceremonia con Carácter",
-              description: "Para quien busca destacar con sutileza a través de texturas, colores profundos y botonaduras especiales.",
+              description: "Para quien busca presencia rotunda mediante colores profundos, chalecos con personalidad y botonaduras exclusivas.",
               imageSlotId: "GROOM_DETAIL_FABRIC"
             },
             {
               name: "Sofisticación Relajada",
-              description: "Trajes desestructurados, tejidos ligeros y una elegancia natural perfecta para enlaces civiles o al aire libre.",
+              description: "Patronaje ligero y desestructurado en mezclas de lino y seda refinada, ideal para enlaces al aire libre o marinos.",
               imageSlotId: "GROOM_ATELIER"
             }
           ]}
         />
 
-        <GridSection 
-          title="La experiencia de cita"
-          subtitle="Desde la primera prueba hasta el último ajuste, te acompañamos para que todo encaje."
-          columns={4}
-          items={[
-            { title: "Escucha", description: "Conocemos tu estilo, el tipo de evento y lo que buscas transmitir." },
-            { title: "Selección", description: "Te proponemos los cortes, tejidos y opciones que mejor encajan." },
-            { title: "Prueba y Ajustes", description: "Toma de medidas precisa para que el traje se adapte a ti a la perfección." },
-            { title: "Entrega", description: "Revisión final para garantizar que todo está listo para tu gran día." }
+        <AppointmentTimeline 
+          title="La Experiencia de tu Cita"
+          subtitle="Un recorrido estructurado y tranquilo desde la primera conversación hasta la entrega final."
+          steps={[
+            {
+              number: "01",
+              title: "Escucha",
+              description: "Profundizamos en el concepto del evento, tus referencias y protocolo deseado."
+            },
+            {
+              number: "02",
+              title: "Selección",
+              description: "Probamos siluetas, solapas y selecciones de tejidos de los mejores telares europeos."
+            },
+            {
+              number: "03",
+              title: "Toma de Medidas",
+              description: "Modelado preciso para que la caída de la prenda se adapte como una segunda piel."
+            },
+            {
+              number: "04",
+              title: "Prueba y Ajuste",
+              description: "Retoque en taller propio con la pieza avanzada para garantizar libertad de movimiento."
+            },
+            {
+              number: "05",
+              title: "Entrega",
+              description: "Revisión final de planchado y presentación para que todo esté perfecto en tu gran día."
+            }
           ]}
         />
 
-        <GridSection 
-          title="Por qué Miquel Suay"
-          theme="dark"
-          columns={3}
+        <TrustStrip 
+          title="Por qué elegir Miquel Suay"
+          theme="light"
           items={[
-            { title: "Oficio y tradición", description: "Décadas de experiencia vistiendo a hombres en sus momentos más importantes." },
-            { title: "Asesoramiento experto", description: "No vendemos ropa, ofrecemos conocimiento estilístico y protocolario." },
-            { title: "Atención individual", description: "Cita privada para garantizar la discreción y el foco absoluto en ti." },
-            { title: "Selección cuidada", description: "Materiales premium y diseños exclusivos que no encontrarás en otros lugares." },
-            { title: "Arreglos precisos", description: "Modistas y sastres propios que entienden cómo debe caer cada tejido." },
-            { title: "Acompañamiento", description: "Tranquilidad y confianza desde el primer día hasta la entrega final." }
+            { title: "Asesoramiento de Estilo", description: "Orientación experta sobre protocolo y armonía con el vestido de la pareja." },
+            { title: "Materiales Exclusivos", description: "Paños de lana Super 130s, sedas naturales y mezclas de alta gama." },
+            { title: "Garantía de Ajuste", description: "Ningún traje sale del atelier sin nuestra supervisión minuciosa." }
           ]}
         />
-
-        {/* TODO TESTIMONIALS: Añadir componente de prueba social cuando se tengan citas reales */}
 
         <FinalAppointmentCTA 
-          title="Descubre la colección Novio en nuestro atelier"
+          eyebrow="Atelier Privado"
+          title="Descubre tu traje en una experiencia única"
           imageSlotId="GROOM_FINAL_CTA"
           onCtaClick={scrollToForm}
         />

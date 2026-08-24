@@ -1,57 +1,89 @@
 import React from 'react';
 import styles from './CategoryBlock.module.css';
+import { AnimatedReveal } from '../AnimatedReveal';
 
-interface CategoryBlockProps {
+export interface CategoryBlockProps {
   id: string;
   categoryValue: string;
+  variant: 'bride' | 'festera' | 'madrina' | 'graduation';
+  eyebrowText?: string;
   title: string;
+  titleItalic?: string;
   description: string;
   ctaText: string;
   imageSlotId1: string;
   imageSlotId2?: string;
-  reversed?: boolean;
   onCtaClick: (category: string) => void;
 }
 
 export const CategoryBlock: React.FC<CategoryBlockProps> = ({
   id,
   categoryValue,
+  variant,
+  eyebrowText,
   title,
+  titleItalic,
   description,
   ctaText,
   imageSlotId1,
   imageSlotId2,
-  reversed = false,
   onCtaClick
 }) => {
   return (
-    <section id={id} className={`${styles.categoryBlock} ${reversed ? styles.reversed : ''}`}>
+    <section id={id} className={`${styles.categoryBlock} ${styles[variant]}`}>
       <div className={styles.container}>
         <div className={styles.textColumn}>
-          <h2 className={styles.title}>{title}</h2>
-          <p className={styles.description}>{description}</p>
-          <button 
-            className={styles.ctaContextual} 
-            onClick={() => onCtaClick(categoryValue)}
-          >
-            {ctaText}
-          </button>
+          <AnimatedReveal direction="up">
+            <span className="eyebrow">{eyebrowText || categoryValue}</span>
+          </AnimatedReveal>
+
+          <AnimatedReveal direction="up" delay={150}>
+            <h2 className={styles.title}>
+              {title}{' '}
+              {titleItalic && <span className="font-italic">{titleItalic}</span>}
+            </h2>
+          </AnimatedReveal>
+
+          <AnimatedReveal direction="up" delay={250}>
+            <p className={styles.description}>{description}</p>
+          </AnimatedReveal>
+
+          <AnimatedReveal direction="up" delay={350}>
+            <button 
+              className={`btn-editorial ${styles.contextualBtn}`} 
+              onClick={() => onCtaClick(categoryValue)}
+            >
+              <span>{ctaText}</span>
+              <svg className="arrow-icon" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              </svg>
+            </button>
+          </AnimatedReveal>
         </div>
         
         <div className={styles.imageGrid}>
-          <div className={styles.primaryImage}>
-            {/* IMAGE_SLOT: {imageSlotId1} */}
-            <div className={styles.imagePlaceholder}>
-               <span className={styles.placeholderText}>[IMAGEN: {imageSlotId1}]</span>
-            </div>
-          </div>
-          {imageSlotId2 && (
-            <div className={styles.secondaryImage}>
-              {/* IMAGE_SLOT: {imageSlotId2} */}
+          <AnimatedReveal direction="clip-up" delay={200} className={styles.primaryFrameWrapper}>
+            <div className={styles.primaryImage}>
+              {/* IMAGE_SLOT: {imageSlotId1} [{variant.toUpperCase()}_PRIMARY] */}
               <div className={styles.imagePlaceholder}>
-                 <span className={styles.placeholderText}>[IMAGEN: {imageSlotId2}]</span>
+                <div className={styles.slotInfo}>
+                  <span className={styles.slotLabel}>IMAGE_SLOT</span>
+                  <span className={styles.slotId}>{imageSlotId1}</span>
+                  <span className={styles.variantBadge}>{variant}</span>
+                </div>
               </div>
             </div>
+          </AnimatedReveal>
+
+          {imageSlotId2 && (
+            <AnimatedReveal direction="up" delay={400} className={styles.secondaryFrameWrapper}>
+              <div className={styles.secondaryImage}>
+                {/* IMAGE_SLOT: {imageSlotId2} [{variant.toUpperCase()}_SECONDARY] */}
+                <div className={styles.imagePlaceholderSecondary}>
+                  <span className={styles.slotIdSmall}>{imageSlotId2}</span>
+                </div>
+              </div>
+            </AnimatedReveal>
           )}
         </div>
       </div>

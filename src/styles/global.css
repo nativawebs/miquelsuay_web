@@ -1,22 +1,26 @@
-/* TODO BRAND FONT:
-   Sustituir estas fuentes provisionales por las tipografías oficiales
-   de Miquel Suay cuando el cliente proporcione los archivos y licencias.
-*/
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
   /* Paleta cromática aprobada */
   --color-primary: #9D2149; /* CTA, microtítulos, estados activos, acentos */
+  --color-primary-hover: #7A1938;
   --color-soft-gray: #E2E1E1; /* Divisores, bordes, campos, fondos secundarios */
   --color-black: #040404; /* Textos, contrastes, titulares, bloques oscuros */
   --color-background: #F7F5F1; /* Fondo principal (marfil) */
   --color-white: #FFFFFF; /* Formulario, tarjetas, espacio negativo */
 
-  /* Tipografía base */
-  --font-serif: 'Cormorant Garamond', serif;
-  --font-sans: 'Inter', sans-serif;
+  /* Tipografía */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
-  /* Espaciado base (4px scale) */
+  /* Sistema de Animaciones / Motion Tokens */
+  --motion-fast: 180ms;
+  --motion-base: 320ms;
+  --motion-slow: 650ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Espaciado */
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
   --spacing-3: 0.75rem;
@@ -24,18 +28,23 @@
   --spacing-6: 1.5rem;
   --spacing-8: 2rem;
   --spacing-12: 3rem;
-  --spacing-16: 4rem;
-  --spacing-24: 6rem;
-  --spacing-32: 8rem;
+  --spacing-16: 4.5rem;
+  --spacing-24: 7rem;
+  --spacing-32: 10rem;
 
   /* Contenedores */
   --container-max: 1440px;
-  --container-content: 1280px;
-  --container-narrow: 800px;
+  --container-content: 1240px;
+  --container-narrow: 840px;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -44,40 +53,42 @@ body {
   background-color: var(--color-background);
   color: var(--color-black);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 h1, h2 {
   font-family: var(--font-serif);
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: clamp(36px, 5vw, 72px);
-  line-height: 1.1;
+  font-size: clamp(38px, 5.5vw, 76px);
+  line-height: 1.08;
 }
 
 h2 {
-  font-size: clamp(28px, 4vw, 48px);
-  line-height: 1.2;
+  font-size: clamp(30px, 4vw, 54px);
+  line-height: 1.15;
 }
 
 h3 {
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: clamp(17px, 2vw, 22px);
-  line-height: 1.3;
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.25;
 }
 
 p {
   margin-top: 0;
-  font-size: clamp(16px, 1.5vw, 18px);
+  font-size: clamp(15px, 1.2vw, 17px);
+  color: #333333;
 }
 
 a {
@@ -96,18 +107,82 @@ button {
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: clamp(11px, 1vw, 14px);
+  font-size: clamp(11px, 0.9vw, 13px);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.18em;
   color: var(--color-primary);
   font-weight: 600;
+  display: inline-block;
+  margin-bottom: var(--spacing-3);
 }
 
-/* Utilidad para invertir el logo (pasarlo a blanco) en fondos oscuros */
+.font-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.serif-display {
+  font-family: var(--font-serif);
+}
+
+/* Utilidad para invertir el logo en fondos oscuros */
 .invert-on-dark {
   filter: brightness(0) invert(1);
+}
+
+/* Microinteracción de Botón Premium con Línea / Flecha */
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+  position: relative;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 16px 36px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 1px;
+  overflow: hidden;
+  transition: background-color var(--motion-base) var(--ease-standard), transform var(--motion-fast) ease;
+}
+
+.btn-editorial:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-editorial:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 3px;
+}
+
+.btn-editorial .arrow-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform var(--motion-base) var(--ease-emphasis);
+}
+
+.btn-editorial:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Accessible reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

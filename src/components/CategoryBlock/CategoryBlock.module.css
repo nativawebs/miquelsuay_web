@@ -1,11 +1,8 @@
 .categoryBlock {
-  padding: var(--spacing-16) 0;
-  background-color: var(--color-background);
+  padding: var(--spacing-24) 0;
+  position: relative;
   border-bottom: 1px solid var(--color-soft-gray);
-}
-
-.categoryBlock:last-of-type {
-  border-bottom: none;
+  overflow: hidden;
 }
 
 .container {
@@ -13,107 +10,272 @@
   margin: 0 auto;
   padding: 0 var(--spacing-6);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-12);
+  grid-template-columns: 1fr 1.1fr;
+  gap: var(--spacing-16);
   align-items: center;
 }
 
-.reversed .container {
-  grid-template-columns: 1.2fr 0.8fr;
-}
-
-.reversed .textColumn {
-  order: 2;
-  padding-left: var(--spacing-8);
-}
-
-.reversed .imageGrid {
-  order: 1;
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .title {
+  color: var(--color-black);
   margin-bottom: var(--spacing-6);
 }
 
 .description {
-  color: #444;
-  font-size: 17px;
-  max-width: 450px;
+  color: #444444;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.65;
   margin-bottom: var(--spacing-8);
-}
-
-.ctaContextual {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-  height: 48px;
-  padding: 0 var(--spacing-6);
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 2px;
-  transition: all 0.2s ease;
-}
-
-.ctaContextual:hover {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  max-width: 480px;
 }
 
 .imageGrid {
+  position: relative;
+  width: 100%;
   display: flex;
-  gap: var(--spacing-4);
-  align-items: flex-end;
+}
+
+.primaryFrameWrapper {
+  width: 100%;
 }
 
 .primaryImage {
-  flex: 2;
+  width: 100%;
   aspect-ratio: 3/4;
   background-color: #E2E1E1;
+  border-radius: 1px;
+  overflow: hidden;
+  position: relative;
 }
 
-.secondaryImage {
-  flex: 1;
-  aspect-ratio: 3/4;
-  background-color: #D2D1D1;
-  transform: translateY(var(--spacing-8));
+.secondaryFrameWrapper {
+  position: absolute;
 }
 
 .imagePlaceholder {
   width: 100%;
   height: 100%;
+  background: linear-gradient(145deg, #E2E1E1 0%, #D8D6D1 100%);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.placeholderText {
-  color: #888;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  text-align: center;
-  padding: var(--spacing-2);
+.slotInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
 }
 
-@media (max-width: 768px) {
+.slotLabel {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.slotId {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--color-black);
+}
+
+.variantBadge {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: rgba(4, 4, 4, 0.06);
+  padding: 2px 8px;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+.imagePlaceholderSecondary {
+  width: 100%;
+  height: 100%;
+  background-color: #D2D1D1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slotIdSmall {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* ====================================================
+   VARIANT 1: BRIDE (Aire, delicadeza, superposición flotante)
+   ==================================================== */
+.bride {
+  background-color: #FBFBF9;
+}
+
+.bride .container {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.bride .secondaryFrameWrapper {
+  bottom: -10%;
+  right: -5%;
+  width: 45%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border: 8px solid var(--color-white);
+  z-index: 3;
+}
+
+.bride .secondaryImage {
+  aspect-ratio: 3/4;
+}
+
+/* ====================================================
+   VARIANT 2: FESTERA (Presencia, línea vertical borgoña, retícula sobria)
+   ==================================================== */
+.festera {
+  background-color: var(--color-background);
+}
+
+.festera .container {
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.festera .textColumn {
+  order: 2;
+  border-left: 2px solid var(--color-primary);
+  padding-left: var(--spacing-8);
+}
+
+.festera .imageGrid {
+  order: 1;
+  gap: var(--spacing-4);
+}
+
+.festera .primaryFrameWrapper {
+  width: 65%;
+}
+
+.festera .secondaryFrameWrapper {
+  position: relative;
+  width: 35%;
+  align-self: flex-end;
+}
+
+.festera .secondaryImage {
+  aspect-ratio: 2/3;
+}
+
+/* ====================================================
+   VARIANT 3: MADRINA (Contraste elegante, encuadre sobrio)
+   ==================================================== */
+.madrina {
+  background-color: var(--color-white);
+}
+
+.madrina .container {
+  grid-template-columns: 1fr 1fr;
+}
+
+.madrina .primaryImage {
+  aspect-ratio: 4/5;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05);
+}
+
+.madrina .secondaryFrameWrapper {
+  top: 10%;
+  left: -10%;
+  width: 40%;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+  border: 6px solid var(--color-white);
+  z-index: 3;
+}
+
+.madrina .secondaryImage {
+  aspect-ratio: 1/1;
+}
+
+/* ====================================================
+   VARIANT 4: GRADUATION (Ángulo contemporáneo, retícula asimétrica)
+   ==================================================== */
+.graduation {
+  background-color: var(--color-background);
+}
+
+.graduation .container {
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.graduation .textColumn {
+  order: 2;
+}
+
+.graduation .imageGrid {
+  order: 1;
+}
+
+.graduation .primaryImage {
+  aspect-ratio: 3/4;
+  transform: rotate(-1deg);
+  transition: transform var(--motion-slow) ease;
+}
+
+.graduation .primaryImage:hover {
+  transform: rotate(0deg);
+}
+
+.graduation .secondaryFrameWrapper {
+  bottom: 5%;
+  right: 5%;
+  width: 45%;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.09);
+  border: 6px solid var(--color-white);
+  z-index: 3;
+}
+
+.graduation .secondaryImage {
+  aspect-ratio: 4/5;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
   .categoryBlock {
-    padding: var(--spacing-12) 0;
+    padding: var(--spacing-16) 0;
   }
-  
-  .container {
+
+  .container, .festera .container, .graduation .container {
     grid-template-columns: 1fr;
     gap: var(--spacing-8);
   }
-  
-  .reversed .textColumn {
+
+  .festera .textColumn, .graduation .textColumn {
     order: 1;
-    padding-left: 0;
   }
-  
-  .reversed .imageGrid {
+
+  .festera .imageGrid, .graduation .imageGrid {
     order: 2;
   }
-  
-  .secondaryImage {
-    transform: translateY(0);
+
+  .festera .textColumn {
+    border-left: 2px solid var(--color-primary);
+    padding-left: var(--spacing-4);
+  }
+
+  .bride .secondaryFrameWrapper,
+  .madrina .secondaryFrameWrapper,
+  .graduation .secondaryFrameWrapper {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: 40%;
+    margin-top: -20px;
+    align-self: flex-end;
   }
 }
