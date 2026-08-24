@@ -80,8 +80,13 @@ export const HeroLead: React.FC<HeroLeadProps> = ({
           {/* Mobile image */}
           <div className={styles.imageWrapperMobile}>
             <div className={styles.imagePlaceholderMobile} aria-label={imageAltText}>
-              {figureImg ? (
-                <img src={figureImg} alt={imageAltText} className={styles.heroImageMobile} />
+              {isCompositeMode ? (
+                <>
+                  {/* Background layer */}
+                  <img src={primaryImg!} alt="" aria-hidden="true" className={styles.compositeBg} />
+                  {/* Figure layer */}
+                  <img src={figureImg!} alt={imageAltText} className={styles.compositeFigure} />
+                </>
               ) : primaryImg ? (
                 <img src={primaryImg} alt={imageAltText} className={styles.heroImageMobile} />
               ) : (
